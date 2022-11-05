@@ -1,0 +1,15 @@
+### I wrote this SAS code for a specific project in the KDHE's Bureau of Epidemiology and Public Health Informatics. 
+It queries a database to find the number of births in the Wichita area ###
+
+proc sql;
+create table count_by_zip as select
+     zip,
+      count(optical_key_num) as num_births
+from VSHIST.ORIGBRHS2021
+where state in ('KANSAS','KS')
+and county eq 'SEDGWICK'
+and substr(idob,7,4) eq '2021'
+and substr(zip,1,5) in("67001","67016")
+GROUP BY zip
+ORDER BY count(optical_key_num) DESC;
+Quit;
