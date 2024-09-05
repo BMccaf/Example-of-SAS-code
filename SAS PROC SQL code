@@ -1,5 +1,5 @@
 ### I wrote this SAS code for a specific project in the KDHE's Bureau of Epidemiology and Public Health Informatics. 
-It queries a database to find the number of births in the Wichita area ###
+It queries a database to find the number of births in the Wichita, KS area ###
 
 proc sql;
 create table count_by_zip as select
